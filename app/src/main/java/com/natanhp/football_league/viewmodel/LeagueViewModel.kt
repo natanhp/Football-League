@@ -6,6 +6,6 @@ import com.natanhp.football_league.model.LeagueModel
 import com.natanhp.football_league.repository.LeagueRepository
 
 class LeagueViewModel : ViewModel() {
-    val leagueRepository = LeagueRepository()
+    private val leagueRepository = LeagueRepository()
     val leagueModel: LiveData<ArrayList<LeagueModel>> = leagueRepository.getLeague()
 }

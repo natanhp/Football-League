@@ -22,16 +22,18 @@ class DetailLeagueActivity : AppCompatActivity() {
 
         val leagueModel = intent.getParcelableExtra<LeagueModel>("league")
 
-        val imageLogo = findViewById(R.id.img_logo) as ImageView
-        val textName = findViewById(R.id.tv_name) as TextView
-        val textDesc = findViewById(R.id.tv_desc) as TextView
+        val imageLogo: ImageView = findViewById(R.id.img_logo)
+        val textName: TextView = findViewById(R.id.tv_name)
+        val textDesc: TextView = findViewById(R.id.tv_desc)
 
-        Glide.with(this)
-            .load(getDrawable(leagueModel.getLogo()))
-            .into(imageLogo)
+        leagueModel?.let {
+            Glide.with(this)
+                .load(getDrawable(leagueModel.getLogo()))
+                .into(imageLogo)
 
-        textName.text = leagueModel.getName()
-        textDesc.text = leagueModel.getDesc()
+            textName.text = leagueModel.getName()
+            textDesc.text = leagueModel.getDesc()
+        }
     }
 
     private class DetailLeagueUI : AnkoComponent<DetailLeagueActivity> {
