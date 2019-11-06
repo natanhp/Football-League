@@ -1,14 +1,12 @@
 package com.natanhp.football_league.view
 
 import android.graphics.Typeface
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.view.marginLeft
-import androidx.core.view.marginTop
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.natanhp.football_league.R
 import com.natanhp.football_league.model.LeagueModel
@@ -28,7 +26,7 @@ class DetailLeagueActivity : AppCompatActivity() {
 
         leagueModel?.let {
             Glide.with(this)
-                .load(getDrawable(leagueModel.getLogo()))
+                .load(leagueModel.getOnlineLogo())
                 .into(imageLogo)
 
             textName.text = leagueModel.getName()
@@ -53,7 +51,7 @@ class DetailLeagueActivity : AppCompatActivity() {
                     textView {
                         id = R.id.tv_name
                         typeface = Typeface.DEFAULT_BOLD
-                    }.lparams{
+                    }.lparams {
                         topMargin = 8
                         gravity = Gravity.CENTER_HORIZONTAL
                     }
@@ -68,6 +66,5 @@ class DetailLeagueActivity : AppCompatActivity() {
             }
         }
     }
-
 }
 
