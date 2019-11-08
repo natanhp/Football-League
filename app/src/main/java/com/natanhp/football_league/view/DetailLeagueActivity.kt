@@ -2,8 +2,7 @@ package com.natanhp.football_league.view
 
 import android.graphics.Typeface
 import android.os.Bundle
-import android.view.Gravity
-import android.view.View
+import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -14,11 +13,13 @@ import org.jetbrains.anko.*
 
 class DetailLeagueActivity : AppCompatActivity() {
 
+    private var leagueModel = LeagueModel(0, "", 0, "", "")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         DetailLeagueUI().setContentView(this)
 
-        val leagueModel = intent.getParcelableExtra<LeagueModel>("league")
+        leagueModel = intent.getParcelableExtra<LeagueModel>("league")
 
         val imageLogo: ImageView = findViewById(R.id.img_logo)
         val textName: TextView = findViewById(R.id.tv_name)
@@ -65,6 +66,21 @@ class DetailLeagueActivity : AppCompatActivity() {
 
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+        menuInflater.inflate(R.menu.detail_league_menu, menu)
+
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.matches){
+            startActivity<MatchActivity>("match" to leagueModel)
+        }
+
+        return true
     }
 }
 
