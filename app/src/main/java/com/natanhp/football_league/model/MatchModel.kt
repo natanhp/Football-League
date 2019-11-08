@@ -1,45 +1,48 @@
 package com.natanhp.football_league.modeldata
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class MatchModel(
 
     @SerializedName("idEvent")
-    private val idMatch: Int,
+    val idMatch: Int,
 
     @SerializedName("strHomeTeam")
-    private val teamHome: String,
+    val teamHome: String,
 
     @SerializedName("strAwayTeam")
-    private val teamAway: String,
+    val teamAway: String,
 
     @SerializedName("intHomeScore")
-    private val homeScore: Int,
+    val homeScore: Int,
 
     @SerializedName("intAwayScore")
-    private val awayScore: Int,
+    val awayScore: Int,
 
     @SerializedName("strHomeGoalDetails")
-    private val homeGoalDetail: String,
+    val homeGoalDetail: String,
 
     @SerializedName("strHomeRedCards")
-    private val homeRedCard: String,
+    val homeRedCard: String,
 
     @SerializedName("strHomeYellowCards")
-    private val homeYellowCard: String,
+    val homeYellowCard: String,
 
     @SerializedName("strHomeLineupGoalkeeper")
-    private val homeLineUpGoalKeeper: String,
+    val homeLineUpGoalKeeper: String,
 
     @SerializedName("strAwayGoalDetails")
-    private val awayGoalDetail: String,
+    val awayGoalDetail: String,
 
     @SerializedName("strAwayRedCards")
-    private val awayRedCard: String,
+    val awayRedCard: String,
 
     @SerializedName("strAwayYellowCards")
-    private val awayYellowCard: String,
+    val awayYellowCard: String,
 
     @SerializedName("strAwayLineupGoalkeeper")
-    private val awayLineUpGoalKeeper: String
-)
+    val awayLineUpGoalKeeper: String
+) : Parcelable
