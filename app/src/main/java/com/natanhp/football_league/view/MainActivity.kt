@@ -2,6 +2,8 @@ package com.natanhp.football_league.view
 
 import android.os.Bundle
 import android.view.Gravity
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.ProgressBar
@@ -9,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.natanhp.football_league.R
 import com.natanhp.football_league.adapter.LeagueAdapter
 import com.natanhp.football_league.model.LeagueModel
 import com.natanhp.football_league.viewmodel.LeagueViewModel
@@ -62,5 +65,19 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         progressBar.visibility = View.GONE
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.search_match_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        if (item.itemId == R.id.search_menu) {
+            startActivity<SearchMatchActivity>()
+        }
+
+        return true
     }
 }
