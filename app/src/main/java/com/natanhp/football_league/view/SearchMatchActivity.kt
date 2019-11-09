@@ -44,6 +44,14 @@ class SearchMatchActivity : AppCompatActivity() {
 
                 matchViewModel.searchMatches(searchView.query)
                     .observe(this@SearchMatchActivity, Observer {
+
+                        if (it.matches.isNullOrEmpty()) {
+                            toast("Pencarian tidak ditemukan")
+                            progressBar.visibility = View.GONE
+
+                            return@Observer
+                        }
+
                         it?.let {
                             matchAdapter.setMatch(it.matches)
                             progressBar.visibility = View.GONE
