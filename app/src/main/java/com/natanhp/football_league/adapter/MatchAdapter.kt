@@ -44,6 +44,7 @@ class MatchAdapter(private val listener: (MatchModel) -> Unit) :
 
     fun setMatch(matches: ArrayList<MatchModel>) {
         this.matches = matches
+        notifyDataSetChanged()
     }
 
 }
