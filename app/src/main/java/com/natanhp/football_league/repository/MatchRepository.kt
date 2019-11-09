@@ -30,4 +30,21 @@ class MatchRepository {
 
         return nextMatches
     }
+
+    fun getPrevMatches(id: Int?): LiveData<MatchModels> {
+        val nextMatchEndpoit = retrofit2.create(MatchEndpoint::class.java)
+
+        nextMatchEndpoit.getPreviousMatches(id).enqueue(object : Callback<MatchModels> {
+            override fun onFailure(call: Call<MatchModels>, t: Throwable) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onResponse(call: Call<MatchModels>, response: Response<MatchModels>) {
+                prevMatches.postValue(response.body())
+            }
+
+        })
+
+        return prevMatches
+    }
 }

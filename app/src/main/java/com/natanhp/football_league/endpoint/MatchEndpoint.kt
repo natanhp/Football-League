@@ -11,5 +11,5 @@ interface MatchEndpoint {
     fun getNextMatches(@Query("id") id: Int?): Call<MatchModels>
 
     @GET("api/v1/json/1/eventspastleague.php")
-    fun getPreviousMatches(@Query("id") id: Int): Call<MatchModels>
+    fun getPreviousMatches(@Query("id") id: Int?): Call<MatchModels>
 }

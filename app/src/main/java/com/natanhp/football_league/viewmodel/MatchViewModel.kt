@@ -7,4 +7,5 @@ class MatchViewModel : ViewModel() {
     private val matchRepository = MatchRepository()
 
     fun getNextMatches(id: Int?) = matchRepository.getNextMatches(id)
+    fun getPrevMatches(id: Int?) = matchRepository.getPrevMatches(id)
 }
