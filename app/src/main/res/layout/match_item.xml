@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/space_small"
     xmlns:tool="http://schemas.android.com/tools"
     android:orientation="horizontal">
 
-<!--    <Space-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_weight="1"/>-->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
 
     <TextView
         android:id="@+id/text_home_team"
@@ -19,10 +20,10 @@
         android:textSize="@dimen/text_large"
         tool:text="@tools:sample/first_names"/>
 
-<!--    <Space-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_weight="1"/>-->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
 
     <TextView
         android:id="@+id/text_home_score"
@@ -52,10 +53,10 @@
         android:textSize="@dimen/text_large"
         tool:text="2"/>
 
-<!--    <Space-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_weight="1"/>-->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
 
     <TextView
         android:id="@+id/text_away_team"
@@ -66,9 +67,9 @@
         android:textColor="@color/colorBlack"
         tool:text="@tools:sample/first_names"/>
 
-<!--    <Space-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_weight="1"/>-->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
 
 </LinearLayout>
