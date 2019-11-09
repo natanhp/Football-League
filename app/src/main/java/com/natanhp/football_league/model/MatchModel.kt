@@ -8,41 +8,41 @@ import kotlinx.android.parcel.Parcelize
 data class MatchModel(
 
     @SerializedName("idEvent")
-    val idMatch: Int,
+    val idMatch: Int = 0,
 
     @SerializedName("strHomeTeam")
-    val teamHome: String,
+    val teamHome: String = "",
 
     @SerializedName("strAwayTeam")
-    val teamAway: String,
+    val teamAway: String = "",
 
     @SerializedName("intHomeScore")
-    val homeScore: Int,
+    val homeScore: Int = 0,
 
     @SerializedName("intAwayScore")
-    val awayScore: Int,
+    val awayScore: Int = 0,
 
     @SerializedName("strHomeGoalDetails")
-    val homeGoalDetail: String,
+    val homeGoalDetail: String = "",
 
     @SerializedName("strHomeRedCards")
-    val homeRedCard: String,
+    val homeRedCard: String = "",
 
     @SerializedName("strHomeYellowCards")
-    val homeYellowCard: String,
+    val homeYellowCard: String = "",
 
     @SerializedName("strHomeLineupGoalkeeper")
-    val homeLineUpGoalKeeper: String,
+    val homeLineUpGoalKeeper: String = "",
 
     @SerializedName("strAwayGoalDetails")
-    val awayGoalDetail: String,
+    val awayGoalDetail: String = "",
 
     @SerializedName("strAwayRedCards")
-    val awayRedCard: String,
+    val awayRedCard: String = "",
 
     @SerializedName("strAwayYellowCards")
-    val awayYellowCard: String,
+    val awayYellowCard: String = "",
 
     @SerializedName("strAwayLineupGoalkeeper")
-    val awayLineUpGoalKeeper: String
+    val awayLineUpGoalKeeper: String = ""
 ) : Parcelable
