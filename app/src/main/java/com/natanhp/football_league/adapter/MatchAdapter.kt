@@ -30,19 +30,19 @@ class MatchAdapter(private val listener: (MatchModel) -> Unit) :
         private val awayTeamName: TextView = itemView.findViewById(R.id.text_away_team)
         private val awayTeamScore: TextView = itemView.findViewById(R.id.text_away_score)
 
-        fun viewBinder(match: MatchModel, listener: (MatchModel) -> Unit){
+        fun viewBinder(match: MatchModel, listener: (MatchModel) -> Unit) {
             homeTeamName.text = match.teamHome
             homeTeamScore.text = match.homeScore.toString()
             awayTeamName.text = match.teamAway
             awayTeamScore.text = match.awayScore.toString()
 
-            itemView.setOnClickListener{
+            itemView.setOnClickListener {
                 listener(match)
             }
         }
     }
 
-    fun setMatch(matches: ArrayList<MatchModel>){
+    fun setMatch(matches: ArrayList<MatchModel>) {
         this.matches = matches
     }
 
