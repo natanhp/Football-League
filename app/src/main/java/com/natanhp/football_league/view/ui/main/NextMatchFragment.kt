@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.natanhp.football_league.R
 import com.natanhp.football_league.adapter.MatchAdapter
 import com.natanhp.football_league.model.LeagueModel
+import com.natanhp.football_league.view.MatchDetailActivity
 import com.natanhp.football_league.viewmodel.MatchViewModel
+import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
 
 /**
@@ -38,7 +40,7 @@ class NextMatchFragment : Fragment() {
 
         recyclerView.layoutManager = LinearLayoutManager(context)
         val adapter = MatchAdapter {
-            toast("Hapie")
+            startActivity<MatchDetailActivity>("match_detail" to it)
         }
 
         recyclerView.adapter = adapter

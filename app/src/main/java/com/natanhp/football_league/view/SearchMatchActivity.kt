@@ -13,6 +13,7 @@ import com.natanhp.football_league.R
 import com.natanhp.football_league.adapter.MatchAdapter
 import com.natanhp.football_league.viewmodel.MatchViewModel
 import org.jetbrains.anko.sdk27.coroutines.onQueryTextListener
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
 class SearchMatchActivity : AppCompatActivity() {
@@ -31,7 +32,7 @@ class SearchMatchActivity : AppCompatActivity() {
         val searchView: SearchView = findViewById(R.id.search_bar)
         val recyclerView: RecyclerView = findViewById(R.id.match_recyclerview)
         val matchAdapter = MatchAdapter {
-            toast("Hapie")
+            startActivity<MatchDetailActivity>("match_detail" to it)
         }
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = matchAdapter
