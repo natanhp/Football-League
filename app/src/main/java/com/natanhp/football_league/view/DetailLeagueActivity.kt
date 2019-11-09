@@ -2,7 +2,10 @@ package com.natanhp.football_league.view
 
 import android.graphics.Typeface
 import android.os.Bundle
-import android.view.*
+import android.view.Gravity
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -76,7 +79,7 @@ class DetailLeagueActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.matches){
+        if (item.itemId == R.id.matches) {
             startActivity<MatchActivity>("match" to leagueModel)
         }
 
