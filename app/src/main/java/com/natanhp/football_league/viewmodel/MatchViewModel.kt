@@ -8,4 +8,5 @@ class MatchViewModel : ViewModel() {
 
     fun getNextMatches(id: Int?) = matchRepository.getNextMatches(id)
     fun getPrevMatches(id: Int?) = matchRepository.getPrevMatches(id)
+    fun searchMatches(query: CharSequence) = matchRepository.searchMatches(query)
 }
