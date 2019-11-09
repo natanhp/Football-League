@@ -22,7 +22,7 @@ class DetailLeagueActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         DetailLeagueUI().setContentView(this)
 
-        leagueModel = intent.getParcelableExtra<LeagueModel>("league")
+        leagueModel = intent.getParcelableExtra("league")
 
         val imageLogo: ImageView = findViewById(R.id.img_logo)
         val textName: TextView = findViewById(R.id.tv_name)
