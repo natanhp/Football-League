@@ -6,17 +6,55 @@
     android:orientation="vertical"
     tool:context=".view.MatchDetailActivity">
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_small"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/logo_home"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            tool:src="@tools:sample/avatars"
+            android:contentDescription="@string/home_team_logo" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/logo_away"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            tool:src="@tools:sample/avatars"
+            android:contentDescription="@string/away_team_logo" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:visibility="gone"/>
 
         <View
             android:layout_width="0dp"
@@ -54,7 +92,7 @@
             android:textStyle="bold"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/text_large"
-            android:text=":"/>
+            android:text="@string/colon"/>
 
         <TextView
             android:id="@+id/text_away_score"
@@ -91,7 +129,7 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
@@ -156,7 +194,7 @@
        android:layout_height="wrap_content">
 
        <LinearLayout
-           android:layout_width="match_parent"
+           android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:orientation="horizontal">
 
@@ -221,7 +259,7 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
@@ -286,7 +324,7 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
