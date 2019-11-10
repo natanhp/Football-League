@@ -9,7 +9,7 @@ data class MatchModels(
     @SerializedName("events")
     private val matches: ArrayList<MatchModel>
 ) {
-    fun getMatches(): ArrayList<MatchModel> {
+    fun getMatches(): ArrayList<MatchModel>? {
         return matches
     }
 }

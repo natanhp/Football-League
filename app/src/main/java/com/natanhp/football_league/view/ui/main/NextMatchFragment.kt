@@ -53,7 +53,7 @@ class NextMatchFragment : Fragment() {
             progressBar.visibility = View.VISIBLE
             it?.let {
                 progressBar.visibility = View.GONE
-                adapter.setMatch(it.getMatches())
+                it.getMatches()?.let { it1 -> adapter.setMatch(it1) }
             }
         })
 

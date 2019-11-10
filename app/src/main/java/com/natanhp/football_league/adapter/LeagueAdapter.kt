@@ -29,8 +29,8 @@ class LeagueAdapter(private val listener: (LeagueModel) -> Unit) :
     class ViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView),
         LayoutContainer {
 
-        val leageLogo: ImageView = itemView.findViewById(R.id.img_logo)
-        val textViewName: TextView = itemView.findViewById(R.id.tv_name)
+        private val leageLogo: ImageView = itemView.findViewById(R.id.img_logo)
+        private val textViewName: TextView = itemView.findViewById(R.id.tv_name)
 
         fun viewBinder(league: LeagueModel, listener: (LeagueModel) -> Unit) {
             Glide.with(itemView.context)

@@ -16,7 +16,7 @@ import org.jetbrains.anko.*
 
 class DetailLeagueActivity : AppCompatActivity() {
 
-    private var leagueModel = LeagueModel(0, "", 0, "", "")
+    private var leagueModel: LeagueModel? = LeagueModel(0, "", 0, "", "")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,13 +28,13 @@ class DetailLeagueActivity : AppCompatActivity() {
         val textName: TextView = findViewById(R.id.tv_name)
         val textDesc: TextView = findViewById(R.id.tv_desc)
 
-        leagueModel?.let {
+        leagueModel.let {
             Glide.with(this)
-                .load(leagueModel.getOnlineLogo())
+                .load(leagueModel?.getOnlineLogo())
                 .into(imageLogo)
 
-            textName.text = leagueModel.getName()
-            textDesc.text = leagueModel.getDesc()
+            textName.text = leagueModel?.getName()
+            textDesc.text = leagueModel?.getDesc()
         }
     }
 

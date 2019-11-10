@@ -15,7 +15,7 @@ class MatchRepository {
     private val prevMatches = MutableLiveData<MatchModels>()
     private val searchMatches = MutableLiveData<MatchModelsSearch>()
 
-    val retrofit2 = RetrofitService.getRetrofitInstance()
+    private val retrofit2 = RetrofitService.getRetrofitInstance()
 
     fun getNextMatches(id: Int?): LiveData<MatchModels> {
         val nextMatchEndpoit = retrofit2.create(MatchEndpoint::class.java)
