@@ -16,7 +16,6 @@ import com.natanhp.football_league.model.LeagueModel
 import com.natanhp.football_league.view.MatchDetailActivity
 import com.natanhp.football_league.viewmodel.MatchViewModel
 import org.jetbrains.anko.support.v4.startActivity
-import org.jetbrains.anko.support.v4.toast
 
 /**
  * A placeholder fragment containing a simple view.
