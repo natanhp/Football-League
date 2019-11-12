@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.natanhp.football_league.R
 import com.natanhp.football_league.adapter.MatchAdapter
+import com.natanhp.football_league.modeldata.MatchModel
 import com.natanhp.football_league.viewmodel.MatchViewModel
 import org.jetbrains.anko.sdk27.coroutines.onQueryTextListener
 import org.jetbrains.anko.startActivity
@@ -45,15 +46,15 @@ class SearchMatchActivity : AppCompatActivity() {
                 matchViewModel.searchMatches(searchView.query)
                     .observe(this@SearchMatchActivity, Observer {
 
-                        if (it.matches.isNullOrEmpty()) {
+                        if (it.isNullOrEmpty()) {
                             toast("Pencarian tidak ditemukan")
                             progressBar.visibility = View.GONE
 
                             return@Observer
                         }
 
-                        it?.let {
-                            matchAdapter.setMatch(it.matches)
+                        it.let {
+                            matchAdapter.setMatch(it as ArrayList<MatchModel>)
                             progressBar.visibility = View.GONE
                         }
                     })

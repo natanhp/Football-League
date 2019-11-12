@@ -29,7 +29,7 @@ data class MatchModel(
     val homeRedCard: String? = "",
 
     @SerializedName("strHomeYellowCards")
-    val homeYellowCard: String ?= "",
+    val homeYellowCard: String? = "",
 
     @SerializedName("strHomeLineupGoalkeeper")
     val homeLineUpGoalKeeper: String? = "",
@@ -50,5 +50,8 @@ data class MatchModel(
     val homeTeamId: Int,
 
     @SerializedName("idAwayTeam")
-    val awayTeamId: Int
+    val awayTeamId: Int,
+
+    @SerializedName("strSport")
+    val sportType: String
 ) : Parcelable

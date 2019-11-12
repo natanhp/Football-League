@@ -6,6 +6,7 @@ import com.natanhp.football_league.api.RetrofitService
 import com.natanhp.football_league.endpoint.MatchEndpoint
 import com.natanhp.football_league.model.MatchModels
 import com.natanhp.football_league.model.MatchModelsSearch
+import com.natanhp.football_league.modeldata.MatchModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -13,7 +14,7 @@ import retrofit2.Response
 class MatchRepository {
     private val nextMatches = MutableLiveData<MatchModels>()
     private val prevMatches = MutableLiveData<MatchModels>()
-    private val searchMatches = MutableLiveData<MatchModelsSearch>()
+    private val searchMatches = MutableLiveData<List<MatchModel>>()
 
     private val retrofit2 = RetrofitService.getRetrofitInstance()
 
@@ -51,7 +52,7 @@ class MatchRepository {
         return prevMatches
     }
 
-    fun searchMatches(query: CharSequence): LiveData<MatchModelsSearch> {
+    fun searchMatches(query: CharSequence): LiveData<List<MatchModel>> {
         val nextMatchEndpoit = retrofit2.create(MatchEndpoint::class.java)
 
         nextMatchEndpoit.searchMatches(query.toString())
@@ -64,7 +65,10 @@ class MatchRepository {
                     call: Call<MatchModelsSearch>,
                     response: Response<MatchModelsSearch>
                 ) {
-                    searchMatches.postValue(response.body())
+                    val test: List<MatchModel>? = response.body()?.matches
+                    val temp = test?.filter { s -> s.sportType == "Soccer" }
+
+                    searchMatches.postValue(temp)
                 }
 
             })
