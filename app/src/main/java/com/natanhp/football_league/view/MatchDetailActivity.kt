@@ -71,7 +71,13 @@ class MatchDetailActivity : AppCompatActivity() {
         val awayTeamLogo: ImageView = findViewById(R.id.logo_away)
 
         homeTeamName.text = match.teamHome
-        homeTeamScore.text = match.homeScore.toString()
+
+        if (match.homeScore == null) {
+            homeTeamScore.text = "-"
+        } else {
+            homeTeamScore.text = match.homeScore.toString()
+        }
+
         homeTeamGoalDetail.text = match.homeGoalDetail
         homeTeamRedCard.text = match.homeRedCard
         homeTeamYellowCard.text = match.homeYellowCard
@@ -83,7 +89,12 @@ class MatchDetailActivity : AppCompatActivity() {
 
 
         awayTeamName.text = match.teamAway
-        awayTeamScore.text = match.awayScore.toString()
+        if (match.awayScore == null) {
+            awayTeamScore.text = "-"
+        } else {
+            awayTeamScore.text = match.awayScore.toString()
+        }
+
         awayTeamGoalDetail.text = match.awayGoalDetail
         awayTeamRedCard.text = match.awayRedCard
         awayTeamYellowCard.text = match.awayYellowCard

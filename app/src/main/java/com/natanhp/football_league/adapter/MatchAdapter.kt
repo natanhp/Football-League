@@ -32,9 +32,18 @@ class MatchAdapter(private val listener: (MatchModel) -> Unit) :
 
         fun viewBinder(match: MatchModel, listener: (MatchModel) -> Unit) {
             homeTeamName.text = match.teamHome
-            homeTeamScore.text = match.homeScore.toString()
+            if (match.homeScore == null) {
+                homeTeamScore.text = "-"
+            } else {
+                homeTeamScore.text = match.homeScore.toString()
+            }
+
             awayTeamName.text = match.teamAway
-            awayTeamScore.text = match.awayScore.toString()
+            if (match.awayScore == null) {
+                awayTeamScore.text = "-"
+            } else {
+                awayTeamScore.text = match.awayScore.toString()
+            }
 
             itemView.setOnClickListener {
                 listener(match)
