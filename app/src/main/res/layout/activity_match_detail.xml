@@ -124,14 +124,11 @@
 
     </LinearLayout>
 
-    <HorizontalScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/space_small">
 
             <View
                 android:layout_width="0dp"
@@ -140,14 +137,12 @@
 
             <TextView
                 android:id="@+id/text_home_goal_detail"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/text_large"
-                tool:text="@tools:sample/first_names"
-                android:ellipsize="end"
-                android:maxLines="1"/>
+                tool:text="@tools:sample/first_names"/>
 
             <View
                 android:layout_width="0dp"
@@ -171,14 +166,12 @@
 
             <TextView
                 android:id="@+id/text_away_goal_detail"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_large"
                 android:textStyle="bold"
                 android:textColor="@color/colorBlack"
-                tool:text="@tools:sample/first_names"
-                android:ellipsize="end"
-                android:maxLines="1"/>
+                tool:text="@tools:sample/first_names"/>
 
             <View
                 android:layout_width="0dp"
@@ -187,16 +180,12 @@
 
         </LinearLayout>
 
-    </HorizontalScrollView>
-
-   <HorizontalScrollView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content">
 
        <LinearLayout
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:orientation="horizontal">
+           android:orientation="horizontal"
+           android:layout_marginTop="@dimen/space_small">
 
            <View
                android:layout_width="0dp"
@@ -205,14 +194,12 @@
 
            <TextView
                android:id="@+id/text_home_red_card"
-               android:layout_width="wrap_content"
+               android:layout_width="100dp"
                android:layout_height="wrap_content"
                android:textStyle="bold"
                android:textColor="@color/colorBlack"
                android:textSize="@dimen/text_large"
-               tool:text="@tools:sample/first_names"
-               android:ellipsize="end"
-               android:maxLines="1"/>
+               tool:text="@tools:sample/first_names"/>
 
            <View
                android:layout_width="0dp"
@@ -236,14 +223,12 @@
 
            <TextView
                android:id="@+id/text_away_red_card"
-               android:layout_width="wrap_content"
+               android:layout_width="100dp"
                android:layout_height="wrap_content"
                android:textSize="@dimen/text_large"
                android:textStyle="bold"
                android:textColor="@color/colorBlack"
-               tool:text="@tools:sample/first_names"
-               android:ellipsize="end"
-               android:maxLines="1"/>
+               tool:text="@tools:sample/first_names"/>
 
            <View
                android:layout_width="0dp"
@@ -252,11 +237,6 @@
 
        </LinearLayout>
 
-   </HorizontalScrollView>
-
-    <HorizontalScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -270,14 +250,12 @@
 
             <TextView
                 android:id="@+id/text_home_yellow_card"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/text_large"
-                tool:text="@tools:sample/first_names"
-                android:ellipsize="end"
-                android:maxLines="1"/>
+                tool:text="@tools:sample/first_names"/>
 
             <View
                 android:layout_width="0dp"
@@ -301,14 +279,12 @@
 
             <TextView
                 android:id="@+id/text_away_yellow_card"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_large"
                 android:textStyle="bold"
                 android:textColor="@color/colorBlack"
-                tool:text="@tools:sample/first_names"
-                android:ellipsize="end"
-                android:maxLines="1"/>
+                tool:text="@tools:sample/first_names"/>
 
             <View
                 android:layout_width="0dp"
@@ -317,16 +293,12 @@
 
         </LinearLayout>
 
-    </HorizontalScrollView>
-
-    <HorizontalScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/space_small"
+            android:layout_marginBottom="@dimen/space_small">
 
             <View
                 android:layout_width="0dp"
@@ -335,14 +307,12 @@
 
             <TextView
                 android:id="@+id/text_home_line_up_goal_keeper"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/text_large"
-                tool:text="@tools:sample/first_names"
-                android:ellipsize="end"
-                android:maxLines="1"/>
+                tool:text="@tools:sample/first_names"/>
 
             <View
                 android:layout_width="0dp"
@@ -366,14 +336,12 @@
 
             <TextView
                 android:id="@+id/text_away_line_up_goal_keeper"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_large"
                 android:textStyle="bold"
                 android:textColor="@color/colorBlack"
-                tool:text="@tools:sample/first_names"
-                android:ellipsize="end"
-                android:maxLines="1"/>
+                tool:text="@tools:sample/first_names"/>
 
             <View
                 android:layout_width="0dp"
@@ -381,7 +349,5 @@
                 android:layout_weight="1"/>
 
         </LinearLayout>
-
-    </HorizontalScrollView>
 
 </LinearLayout>
