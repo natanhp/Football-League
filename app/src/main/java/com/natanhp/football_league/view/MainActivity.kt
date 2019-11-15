@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         leagueViewModel.leagueModel.observe(this, observer)
 
         linearLayout = linearLayout {
-            progressBar = progressBar() {
+            progressBar = progressBar {
                 visibility = View.GONE
             }.lparams {
                 gravity = Gravity.CENTER
@@ -76,6 +76,8 @@ class MainActivity : AppCompatActivity() {
 
         if (item.itemId == R.id.search_menu) {
             startActivity<SearchMatchActivity>()
+        } else if (item.itemId == R.id.favorite_match_menu) {
+            startActivity<FavoriteMatchActivity>()
         }
 
         return true
