@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
@@ -22,7 +23,7 @@ class MatchDetailActivity : AppCompatActivity() {
     private val teamModel = ArrayList<TeamModel>()
     private lateinit var progressBar: ProgressBar
     private var menuItem: Menu? = null
-    //    private var isFavorite: Boolean = false
+    private var isFavorite: Boolean = false
     private var match: MatchModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,6 +57,8 @@ class MatchDetailActivity : AppCompatActivity() {
                 }
             })
         }
+
+        getFavoriteState()
     }
 
     private fun initViews() {
@@ -115,6 +118,7 @@ class MatchDetailActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.favorite_menu, menu)
         menuItem = menu
+        setFavorite()
 
         return true
     }
@@ -128,7 +132,14 @@ class MatchDetailActivity : AppCompatActivity() {
             }
 
             R.id.add_to_favorite -> {
-                addToFavorite()
+                if (isFavorite) {
+                    removeFromFavorite()
+                } else {
+                    addToFavorite()
+                }
+
+                isFavorite = !isFavorite
+                setFavorite()
 
                 true
             }
@@ -139,5 +150,30 @@ class MatchDetailActivity : AppCompatActivity() {
 
     private fun addToFavorite() {
         match?.let { teamViewModel.addToFavorite(this, it) }
+    }
+
+    private fun removeFromFavorite() {
+        match?.let {
+            teamViewModel.removeFromFavorite(this, it.idMatch.toLong())
+        }
+    }
+
+    private fun setFavorite() {
+        if (isFavorite) {
+            menuItem?.getItem(0)?.icon =
+                ContextCompat.getDrawable(this, R.drawable.ic_added_to_favorites)
+        } else {
+            menuItem?.getItem(0)?.icon =
+                ContextCompat.getDrawable(this, R.drawable.ic_add_to_favorites)
+        }
+    }
+
+    private fun getFavoriteState() {
+        progressBar.visibility = View.VISIBLE
+        match?.let {
+            teamViewModel.getFavoriteState(this, it.idMatch.toLong()).observe(this, Observer {
+                isFavorite = !it.isNullOrEmpty()
+            })
+        }
     }
 }
