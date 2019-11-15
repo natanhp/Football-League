@@ -12,8 +12,16 @@ class TeamViewModel(application: Application) : AndroidViewModel(application) {
     private val matchRepository = MatchRepository()
 
     fun getDetailTeam(id: Int) = teamRepository.getTeamDetail(id)
+
     fun addToFavorite(context: Context, match: MatchModel) {
         matchRepository.insetFavorite(context, match)
     }
+
+    fun removeFromFavorite(context: Context, matchID: Long) {
+        matchRepository.removeFromFavorite(context, matchID)
+    }
+
+    fun getFavoriteState(context: Context, matchID: Long) =
+        matchRepository.getFavoriteState(context, matchID)
 
 }
