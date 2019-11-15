@@ -21,6 +21,7 @@ class MatchRepository {
     private val matchDetail = MutableLiveData<MatchModels>()
     private val searchMatches = MutableLiveData<List<MatchModel>>()
     private val favoriteMatches = MutableLiveData<List<FavoriteMatchModel>>()
+    private val favoriteMatchesState = MutableLiveData<List<FavoriteMatchModel>>()
 
     private val retrofit2 = RetrofitService.getRetrofitInstance()
 
@@ -113,5 +114,19 @@ class MatchRepository {
         }
 
         return favoriteMatches
+    }
+
+    fun removeFromFavorite(context: Context, matchID: Long) {
+        doAsync {
+            FavoriteDAO.removeFromFavorite(context, matchID)
+        }
+    }
+
+    fun getFavoriteState(context: Context, matchID: Long): LiveData<List<FavoriteMatchModel>> {
+        doAsync {
+            favoriteMatchesState.postValue(FavoriteDAO.getFavoriteState(context, matchID))
+        }
+
+        return favoriteMatchesState
     }
 }
