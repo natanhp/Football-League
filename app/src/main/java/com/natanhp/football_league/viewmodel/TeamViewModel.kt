@@ -1,11 +1,19 @@
 package com.natanhp.football_league.viewmodel
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import android.content.Context
+import androidx.lifecycle.AndroidViewModel
+import com.natanhp.football_league.modeldata.MatchModel
+import com.natanhp.football_league.repository.MatchRepository
 import com.natanhp.football_league.repository.TeamRepository
 
-class TeamViewModel : ViewModel(){
+class TeamViewModel(application: Application) : AndroidViewModel(application) {
     private val teamRepository = TeamRepository()
+    private val matchRepository = MatchRepository()
 
     fun getDetailTeam(id: Int) = teamRepository.getTeamDetail(id)
+    fun addToFavorite(context: Context, match: MatchModel) {
+        matchRepository.insetFavorite(context, match)
+    }
 
 }
