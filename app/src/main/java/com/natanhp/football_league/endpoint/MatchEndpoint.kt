@@ -16,4 +16,7 @@ interface MatchEndpoint {
 
     @GET("api/v1/json/1/searchevents.php")
     fun searchMatches(@Query("e") e: String): Call<MatchModelsSearch>
+
+    @GET("api/v1/json/1/lookupevent.php?")
+    fun getDetailMatch(@Query("id") matchID: Int?): Call<MatchModels>
 }
