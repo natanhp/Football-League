@@ -1,6 +1,8 @@
 package com.natanhp.football_league.view
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -16,9 +18,12 @@ import com.natanhp.football_league.viewmodel.TeamViewModel
 
 class MatchDetailActivity : AppCompatActivity() {
 
-    lateinit var teamViewModel: TeamViewModel
+    private lateinit var teamViewModel: TeamViewModel
     private val teamModel = ArrayList<TeamModel>()
-    lateinit var progressBar: ProgressBar
+    private lateinit var progressBar: ProgressBar
+    private var menuItem: Menu? = null
+    //    private var isFavorite: Boolean = false
+    private var match: MatchModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +35,7 @@ class MatchDetailActivity : AppCompatActivity() {
 
         progressBar.visibility = View.VISIBLE
 
-        val match: MatchModel? = intent.getParcelableExtra("match_detail")
+        match = intent.getParcelableExtra("match_detail")
 
 
         match?.let {
@@ -43,7 +48,7 @@ class MatchDetailActivity : AppCompatActivity() {
                     teamViewModel.getDetailTeam(matchModel.awayTeamId).observe(this, Observer {
                         if (teamModelTmp[0].idTeam != it[0].idTeam) {
                             teamModel.add(it[0])
-                            initViews(matchModel)
+                            initViews()
                         }
 
 
@@ -53,7 +58,7 @@ class MatchDetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun initViews(match: MatchModel) {
+    private fun initViews() {
         val homeTeamName: TextView = findViewById(R.id.text_home_team)
         val homeTeamScore: TextView = findViewById(R.id.text_home_score)
         val homeTeamGoalDetail: TextView = findViewById(R.id.text_home_goal_detail)
@@ -70,40 +75,69 @@ class MatchDetailActivity : AppCompatActivity() {
         val awayTeamLineUpGoalKeeper: TextView = findViewById(R.id.text_away_line_up_goal_keeper)
         val awayTeamLogo: ImageView = findViewById(R.id.logo_away)
 
-        homeTeamName.text = match.teamHome
+        homeTeamName.text = match?.teamHome ?: ""
 
-        if (match.homeScore == null) {
+        if (match?.homeScore == null) {
             homeTeamScore.text = "-"
         } else {
-            homeTeamScore.text = match.homeScore.toString()
+            homeTeamScore.text = match?.homeScore.toString()
         }
 
-        homeTeamGoalDetail.text = match.homeGoalDetail
-        homeTeamRedCard.text = match.homeRedCard
-        homeTeamYellowCard.text = match.homeYellowCard
-        homeTeamLineUpGoalKeeper.text = match.homeLineUpGoalKeeper
+        homeTeamGoalDetail.text = match?.homeGoalDetail ?: ""
+        homeTeamRedCard.text = match?.homeRedCard ?: ""
+        homeTeamYellowCard.text = match?.homeYellowCard ?: ""
+        homeTeamLineUpGoalKeeper.text = match?.homeLineUpGoalKeeper ?: ""
 
         Glide.with(this)
             .load(teamModel[0].teamLogo)
             .into(homeTeamLogo)
 
 
-        awayTeamName.text = match.teamAway
-        if (match.awayScore == null) {
+        awayTeamName.text = match?.teamAway ?: ""
+        if (match?.awayScore == null) {
             awayTeamScore.text = "-"
         } else {
-            awayTeamScore.text = match.awayScore.toString()
+            awayTeamScore.text = match?.awayScore.toString()
         }
 
-        awayTeamGoalDetail.text = match.awayGoalDetail
-        awayTeamRedCard.text = match.awayRedCard
-        awayTeamYellowCard.text = match.awayYellowCard
-        awayTeamLineUpGoalKeeper.text = match.awayLineUpGoalKeeper
+        awayTeamGoalDetail.text = match?.awayGoalDetail ?: ""
+        awayTeamRedCard.text = match?.awayRedCard ?: ""
+        awayTeamYellowCard.text = match?.awayYellowCard ?: ""
+        awayTeamLineUpGoalKeeper.text = match?.awayLineUpGoalKeeper ?: ""
 
         Glide.with(this)
             .load(teamModel[1].teamLogo)
             .into(awayTeamLogo)
 
         progressBar.visibility = View.GONE
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.favorite_menu, menu)
+        menuItem = menu
+
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+
+                true
+            }
+
+            R.id.add_to_favorite -> {
+                addToFavorite()
+
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun addToFavorite() {
+        match?.let { teamViewModel.addToFavorite(this, it) }
     }
 }
