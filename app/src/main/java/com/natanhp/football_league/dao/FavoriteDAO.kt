@@ -6,6 +6,7 @@ import com.natanhp.football_league.db.database
 import com.natanhp.football_league.model.FavoriteMatchModel
 import com.natanhp.football_league.modeldata.MatchModel
 import org.jetbrains.anko.db.classParser
+import org.jetbrains.anko.db.delete
 import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
 
@@ -44,5 +45,32 @@ class FavoriteDAO {
 
             return result
         }
+
+        fun removeFromFavorite(context: Context, matchId: Long) {
+            try {
+                context.database.use {
+                    delete(FavoriteMatchModel.TABLE_FAVORITE, "(MATCH_ID = {id})", "id" to matchId)
+                }
+            } catch (e: SQLiteConstraintException) {
+                error(e)
+            }
+        }
+
+        fun getFavoriteState(context: Context, matchId: Long): List<FavoriteMatchModel> {
+            try {
+                context.database.use {
+                    val query = select(FavoriteMatchModel.TABLE_FAVORITE).whereArgs(
+                        "(MATCH_ID = {id})",
+                        "id" to matchId
+                    )
+                    result = query.parseList(classParser())
+                }
+            } catch (e: SQLiteConstraintException) {
+                error(e)
+            }
+
+            return result
+        }
+
     }
 }
