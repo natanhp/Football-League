@@ -52,6 +52,7 @@ class FavoriteMatchAdapter(private val listener: (FavoriteMatchModel) -> Unit) :
     }
 
     fun setMatch(matches: List<FavoriteMatchModel>) {
+        this.matches.clear()
         this.matches.addAll(matches)
         notifyDataSetChanged()
     }
