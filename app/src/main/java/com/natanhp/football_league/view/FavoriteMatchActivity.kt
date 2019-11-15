@@ -17,6 +17,7 @@ class FavoriteMatchActivity : AppCompatActivity() {
 
     private lateinit var matchViewModel: MatchViewModel
     private lateinit var progressBar: ProgressBar
+    private lateinit var adapter: FavoriteMatchAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,12 +30,13 @@ class FavoriteMatchActivity : AppCompatActivity() {
 
         matchViewModel = ViewModelProviders.of(this).get(MatchViewModel::class.java)
 
-        val adapter = FavoriteMatchAdapter {
+        adapter = FavoriteMatchAdapter {
             progressBar.visibility = View.VISIBLE
 
             it.let {
                 matchViewModel.getMatchDetail(it.matchId?.toInt()).observe(this, Observer {
                     it.let {
+                        progressBar.visibility = View.GONE
                         startActivity<MatchDetailActivity>("match_detail" to it.getMatches()?.get(0))
                     }
                 })
@@ -42,8 +44,16 @@ class FavoriteMatchActivity : AppCompatActivity() {
         }
 
         recyclerview.adapter = adapter
+        getData()
 
+    }
 
+    override fun onResume() {
+        super.onResume()
+        getData()
+    }
+
+    private fun getData() {
         progressBar.visibility = View.VISIBLE
         matchViewModel.showFavoriteMatches(this).observe(this, Observer {
             it.let {
