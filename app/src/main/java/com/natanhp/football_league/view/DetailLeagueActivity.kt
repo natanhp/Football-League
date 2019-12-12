@@ -17,6 +17,7 @@ import org.jetbrains.anko.*
 class DetailLeagueActivity : AppCompatActivity() {
 
     private var leagueModel: LeagueModel? = LeagueModel(0, "", 0, "", "")
+    private var idLeague: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +30,7 @@ class DetailLeagueActivity : AppCompatActivity() {
         val textDesc: TextView = findViewById(R.id.tv_desc)
 
         leagueModel.let {
+            idLeague = it?.getId() ?: 0
             Glide.with(this)
                 .load(leagueModel?.getOnlineLogo())
                 .into(imageLogo)
@@ -81,6 +83,8 @@ class DetailLeagueActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.matches) {
             startActivity<MatchActivity>("match" to leagueModel)
+        } else if (item.itemId == R.id.standings) {
+            startActivity<StandingsActivity>("idLeague" to idLeague)
         }
 
         return true
