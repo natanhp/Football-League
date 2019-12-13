@@ -7,5 +7,8 @@
     <item
         android:id="@+id/standings"
         android:title="@string/look_standings" />
+    <item
+        android:id="@+id/teams"
+        android:title="@string/look_team_list" />
 
 </menu>

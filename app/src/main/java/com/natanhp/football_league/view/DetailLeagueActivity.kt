@@ -85,6 +85,8 @@ class DetailLeagueActivity : AppCompatActivity() {
             startActivity<MatchActivity>("match" to leagueModel)
         } else if (item.itemId == R.id.standings) {
             startActivity<StandingsActivity>("idLeague" to idLeague)
+        } else if (item.itemId == R.id.teams) {
+            startActivity<TeamListActivity>("idLeague" to idLeague)
         }
 
         return true
