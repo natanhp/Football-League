@@ -32,5 +32,8 @@ data class TeamModel(
     val stadiumLocation: String,
 
     @SerializedName("strDescriptionEN")
-    val teamDescription: String
+    val teamDescription: String,
+
+    @SerializedName("strSport")
+    val sportType: String
 ) : Parcelable
