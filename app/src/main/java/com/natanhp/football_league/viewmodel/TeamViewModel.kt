@@ -25,4 +25,6 @@ class TeamViewModel(application: Application) : AndroidViewModel(application) {
         matchRepository.getFavoriteState(context, matchID)
 
     fun getTeamList(leagueId: Int) = teamRepository.getTeamList(leagueId)
+
+    fun searchTeam(query: CharSequence) = teamRepository.searchTeam(query)
 }
