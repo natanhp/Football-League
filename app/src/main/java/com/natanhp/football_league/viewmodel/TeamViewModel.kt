@@ -24,4 +24,5 @@ class TeamViewModel(application: Application) : AndroidViewModel(application) {
     fun getFavoriteState(context: Context, matchID: Long) =
         matchRepository.getFavoriteState(context, matchID)
 
+    fun getTeamList(leagueId: Int) = teamRepository.getTeamList(leagueId)
 }
