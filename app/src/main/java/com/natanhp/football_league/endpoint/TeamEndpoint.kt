@@ -11,4 +11,7 @@ interface TeamEndpoint {
 
     @GET("api/v1/json/1/lookup_all_teams.php")
     fun getAllTeams(@Query("id") leagueId: Int): Call<TeamModels>
+
+    @GET("api/v1/json/1/searchteams.php")
+    fun searchTeam(@Query("t") query: CharSequence): Call<TeamModels>
 }
