@@ -78,6 +78,8 @@ class MainActivity : AppCompatActivity() {
             startActivity<SearchMatchActivity>()
         } else if (item.itemId == R.id.favorite_match_menu) {
             startActivity<FavoriteMatchActivity>()
+        } else if (item.itemId == R.id.search_team) {
+            startActivity<SearchTeamActivity>()
         }
 
         return true
