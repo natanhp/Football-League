@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.natanhp.football_league.R
 import com.natanhp.football_league.adapter.TeamAdapter
 import com.natanhp.football_league.viewmodel.TeamViewModel
+import org.jetbrains.anko.startActivity
 
 class TeamListActivity : AppCompatActivity() {
 
@@ -25,7 +26,10 @@ class TeamListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_team_list)
 
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-        val teamAdapter = TeamAdapter()
+        val teamAdapter = TeamAdapter {
+            startActivity<DetailTeamActivity>("team" to it)
+        }
+
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = teamAdapter
 
