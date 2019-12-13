@@ -1,7 +1,10 @@
 package com.natanhp.football_league.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class TeamModel(
 
     @SerializedName("idTeam")
@@ -30,4 +33,4 @@ data class TeamModel(
 
     @SerializedName("strDescriptionEN")
     val teamDescription: String
-)
+) : Parcelable
