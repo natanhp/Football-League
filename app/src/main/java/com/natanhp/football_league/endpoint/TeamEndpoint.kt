@@ -8,4 +8,7 @@ import retrofit2.http.Query
 interface TeamEndpoint {
     @GET("api/v1/json/1/lookupteam.php")
     fun getTeamDetail(@Query("id") id: Int): Call<TeamModels>
+
+    @GET("api/v1/json/1/lookup_all_teams.php")
+    fun getAllTeams(@Query("id") leagueId: Int): Call<TeamModels>
 }
