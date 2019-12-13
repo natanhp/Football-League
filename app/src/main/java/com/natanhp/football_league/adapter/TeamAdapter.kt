@@ -10,7 +10,8 @@ import com.bumptech.glide.Glide
 import com.natanhp.football_league.R
 import com.natanhp.football_league.model.TeamModel
 
-class TeamAdapter : RecyclerView.Adapter<TeamAdapter.ViewHolder>() {
+class TeamAdapter(private val listener: (TeamModel) -> Unit) :
+    RecyclerView.Adapter<TeamAdapter.ViewHolder>() {
 
     private var teams = ArrayList<TeamModel>()
 
@@ -23,19 +24,23 @@ class TeamAdapter : RecyclerView.Adapter<TeamAdapter.ViewHolder>() {
     override fun getItemCount(): Int = teams.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binder(teams[position])
+        holder.binder(teams[position], listener)
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val teamImage: ImageView = itemView.findViewById(R.id.imageViewTeam)
         private val teamName: TextView = itemView.findViewById(R.id.textViewTeamName)
 
-        fun binder(team: TeamModel) {
+        fun binder(team: TeamModel, listener: (TeamModel) -> Unit) {
             Glide.with(itemView.context)
                 .load(team.teamLogo)
                 .into(teamImage)
 
             teamName.text = team.teamName
+
+            itemView.setOnClickListener {
+                listener(team)
+            }
         }
 
     }
