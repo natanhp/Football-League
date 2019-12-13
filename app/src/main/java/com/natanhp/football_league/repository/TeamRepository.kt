@@ -13,6 +13,7 @@ import retrofit2.Response
 class TeamRepository {
     private val team = MutableLiveData<ArrayList<TeamModel>>()
     private val teamList = MutableLiveData<TeamModels>()
+    private val searchTeam = MutableLiveData<List<TeamModel>>()
 
     private val retrofit2 = RetrofitService.getRetrofitInstance()
 
@@ -50,5 +51,27 @@ class TeamRepository {
         })
 
         return teamList
+    }
+
+    fun searchTeam(query: CharSequence): LiveData<List<TeamModel>> {
+        val endpointSearch = retrofit2.create(TeamEndpoint::class.java)
+        endpointSearch.searchTeam(query).enqueue(object : Callback<TeamModels> {
+            override fun onFailure(call: Call<TeamModels>, t: Throwable) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onResponse(call: Call<TeamModels>, response: Response<TeamModels>) {
+                response.body()?.let {
+                    val team: List<TeamModel> = it.teams
+                    val temp = team.filter { s -> s.sportType == "Soccer" }
+
+                    searchTeam.postValue(temp)
+                }
+
+            }
+
+        })
+
+        return searchTeam
     }
 }
