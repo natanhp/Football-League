@@ -36,4 +36,19 @@ data class TeamModel(
 
     @SerializedName("strSport")
     val sportType: String
-) : Parcelable
+) : Parcelable {
+    companion object {
+        const val TABLE_NAME = "TEAM_FAVORITE"
+        const val ID = "ID_"
+        const val TEAM_ID = "TEAM_ID"
+        const val TEAM_LOGO = "TEAM_LOGO"
+        const val TEAM_NAME = "TEAM_NAME"
+        const val ALTERNATE_NAME = "ALTERNATE_NAME"
+        const val FORMED_YEAR = "FORMED_YEAR"
+        const val STADIUM = "STADIUM"
+        const val STADIUM_DESCRIPTION = "STADIUM_DESCRIPTION"
+        const val STADIUM_LOCATION = "STADIUM_LOCATION"
+        const val TEAM_DESCRIPTION = "TEAM_DESCRIPTION"
+        const val SPORT_TYPE = "SPORT_TYPE"
+    }
+}
