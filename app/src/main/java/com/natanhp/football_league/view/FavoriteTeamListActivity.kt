@@ -20,6 +20,11 @@ class FavoriteTeamListActivity : AppCompatActivity() {
         ViewModelProviders.of(this).get(TeamViewModel::class.java)
     }
 
+    private val teamAdapter by lazy {
+        TeamAdapter {
+            startActivity<DetailTeamActivity>("team" to it)
+        }
+    }
     private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,15 +32,21 @@ class FavoriteTeamListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_favorite_team_list)
 
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-        val teamAdapter = TeamAdapter {
-            startActivity<DetailTeamActivity>("team" to it)
-        }
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = teamAdapter
 
         progressBar = findViewById(R.id.progressBar)
 
+        getData()
+    }
+
+    override fun onResumeFragments() {
+        super.onResumeFragments()
+        getData()
+    }
+
+    private fun getData() {
         progressBar.visibility = View.VISIBLE
         teamViewModel.showFavoriteTeams(this).observe(this, Observer {
             it.let {
