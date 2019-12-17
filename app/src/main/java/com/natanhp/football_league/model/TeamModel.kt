@@ -7,8 +7,10 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class TeamModel(
 
+    val id: Long?,
+
     @SerializedName("idTeam")
-    val idTeam: Int,
+    val idTeam: String,
 
     @SerializedName("strTeamBadge")
     val teamLogo: String,
@@ -20,7 +22,7 @@ data class TeamModel(
     val alternateName: String,
 
     @SerializedName("intFormedYear")
-    val formedYear: Int,
+    val formedYear: String,
 
     @SerializedName("strStadium")
     val stadium: String,
