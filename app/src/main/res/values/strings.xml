@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Football-League</string>
+    <string name="title_activity_match">MatchActivity</string>
+    <string name="tab_text_1">Next Match</string>
+    <string name="tab_text_2">Previous Match</string>
+    <string name="match">Pertandingan</string>
+    <string name="goal_details">Goal Details</string>
+    <string name="red_cards">Red Cards</string>
+    <string name="yellow_cards">Yellow Cards</string>
+    <string name="line_up_goal_keeper">Line Up Goal Keeper</string>
+    <string name="home_team_logo">Home Team Logo</string>
+    <string name="away_team_logo">Away Team Logo</string>
+    <string name="colon">:</string>
+    <string name="favorite">Favorite</string>
+    <string name="search_match">Cari Pertandingan</string>
+    <string name="favorite_match">Pertandingan Favorit</string>
+    <string name="look_match">Lihat Pertandingan</string>
+    <string name="look_standings">Lihat Klasemen</string>
+    <string name="standings">Klasemen</string>
+    <string name="look_team_list">Lihat Daftar Tim</string>
+    <string name="team_logo">Logo Tim</string>
+    <string name="alternate_name">Nama Lain</string>
+    <string name="formed_year">Tahun Terbentuk</string>
+    <string name="stadium">Stadion</string>
+    <string name="stadium_description">Deskripsi Stadion</string>
+    <string name="stadium_location">Lokasi Stadion</string>
+    <string name="team_description">Deskripsi Team</string>
+    <string name="search_team">Cari Team</string>
+    <string name="favorite_team">Team Favorit</string>
+</resources>
