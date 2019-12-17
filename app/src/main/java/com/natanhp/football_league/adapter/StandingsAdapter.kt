@@ -39,14 +39,14 @@ class StandingsAdapter : RecyclerView.Adapter<StandingsAdapter.ViewHolder>() {
 
         fun binder(standings: StandingsModel) {
             teamName.text = standings.teamName
-            played.text = standings.played.toString()
-            goalsFor.text = standings.goalsFor.toString()
-            goalsAgainst.text = standings.goalsAgainst.toString()
-            goalsDifference.text = standings.goalsDifference.toString()
-            win.text = standings.win.toString()
-            draw.text = standings.draw.toString()
-            loss.text = standings.loss.toString()
-            total.text = standings.total.toString()
+            played.text = standings.played
+            goalsFor.text = standings.goalsFor
+            goalsAgainst.text = standings.goalsAgainst
+            goalsDifference.text = standings.goalsDifference
+            win.text = standings.win
+            draw.text = standings.draw
+            loss.text = standings.loss
+            total.text = standings.total
         }
     }
 
