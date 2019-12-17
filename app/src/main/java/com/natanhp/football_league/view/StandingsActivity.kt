@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.natanhp.football_league.R
 import com.natanhp.football_league.adapter.StandingsAdapter
+import com.natanhp.football_league.model.StandingsModel
 import com.natanhp.football_league.viewmodel.StandingsViewModel
 
 class StandingsActivity : AppCompatActivity() {
@@ -34,7 +35,23 @@ class StandingsActivity : AppCompatActivity() {
         progressBar.visibility = View.VISIBLE
         standingsViewModel.getStandings(intent.getIntExtra("idLeague", 0)).observe(this, Observer {
             it.let {
-                standingsAdapter.setStandings(it.standings)
+                val standingsTmp = ArrayList<StandingsModel>()
+                standingsTmp.add(
+                    StandingsModel(
+                        0,
+                        "Team",
+                        "P",
+                        "GF",
+                        "GA",
+                        "GD",
+                        "W",
+                        "D",
+                        "L",
+                        "Tot"
+                    )
+                )
+                standingsTmp.addAll(it.standings)
+                standingsAdapter.setStandings(standingsTmp)
                 progressBar.visibility = View.GONE
             }
         })
