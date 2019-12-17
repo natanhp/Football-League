@@ -54,6 +54,12 @@ class MyDatabaseOpenHelper(ctx: Context) :
         p0?.dropTable(TeamModel.TABLE_NAME, true)
     }
 
+    override fun onDowngrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+        super.onDowngrade(db, oldVersion, newVersion)
+        db?.dropTable(FavoriteMatchModel.TABLE_FAVORITE, true)
+        db?.dropTable(TeamModel.TABLE_NAME, true)
+    }
+
 }
 
 val Context.database: MyDatabaseOpenHelper
