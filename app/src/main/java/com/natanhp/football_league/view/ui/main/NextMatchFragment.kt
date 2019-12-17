@@ -33,9 +33,13 @@ class NextMatchFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_match, container, false)
+        return inflater.inflate(R.layout.fragment_match, container, false)
+    }
 
-        val recyclerView = root.findViewById<RecyclerView>(R.id.match_recyclerview)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val recyclerView = view.findViewById<RecyclerView>(R.id.match_recyclerview)
 
         recyclerView.layoutManager = LinearLayoutManager(context)
         val adapter = MatchAdapter {
@@ -46,7 +50,7 @@ class NextMatchFragment : Fragment() {
 
         val league = activity?.intent?.getParcelableExtra<LeagueModel>("match")
 
-        val progressBar = root.findViewById<ProgressBar>(R.id.progress_bar)
+        val progressBar = view.findViewById<ProgressBar>(R.id.progress_bar)
 
         matchViewModel.getNextMatches(league?.getId()).observe(viewLifecycleOwner, Observer {
             progressBar.visibility = View.VISIBLE
@@ -55,8 +59,6 @@ class NextMatchFragment : Fragment() {
                 it.getMatches()?.let { it1 -> adapter.setMatch(it1) }
             }
         })
-
-        return root
     }
 
     companion object {
