@@ -11,26 +11,26 @@ data class StandingsModel(
     val teamName: String,
 
     @Expose
-    val played: Int,
+    val played: String,
 
     @SerializedName("goalsfor")
-    val goalsFor: Int,
+    val goalsFor: String,
 
     @SerializedName("goalsagainst")
-    val goalsAgainst: Int,
+    val goalsAgainst: String,
 
     @SerializedName("goalsdifference")
-    val goalsDifference: Int,
+    val goalsDifference: String,
 
     @Expose
-    val win: Int,
+    val win: String,
 
     @Expose
-    val draw: Int,
+    val draw: String,
 
     @Expose
-    val loss: Int,
+    val loss: String,
 
     @Expose
-    val total: Int
+    val total: String
 )
