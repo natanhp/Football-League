@@ -7,7 +7,7 @@
 
     <TextView
         android:id="@+id/textViewTeamName"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -17,7 +17,7 @@
 
     <TextView
         android:id="@+id/textViewPlayed"
-        android:layout_width="0dp"
+        android:layout_width="28dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -29,7 +29,7 @@
 
     <TextView
         android:id="@+id/textViewGoalsFor"
-        android:layout_width="0dp"
+        android:layout_width="28dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -41,7 +41,7 @@
 
     <TextView
         android:id="@+id/textViewGoalsAgainst"
-        android:layout_width="0dp"
+        android:layout_width="28dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -53,7 +53,7 @@
 
     <TextView
         android:id="@+id/textViewGoalsDifference"
-        android:layout_width="wrap_content"
+        android:layout_width="28dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -65,7 +65,7 @@
 
     <TextView
         android:id="@+id/textViewWin"
-        android:layout_width="0dp"
+        android:layout_width="28dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -77,7 +77,7 @@
 
     <TextView
         android:id="@+id/textViewDraw"
-        android:layout_width="0dp"
+        android:layout_width="28dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -89,7 +89,7 @@
 
     <TextView
         android:id="@+id/textViewLoss"
-        android:layout_width="0dp"
+        android:layout_width="28dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -101,7 +101,7 @@
 
     <TextView
         android:id="@+id/textViewTotal"
-        android:layout_width="0dp"
+        android:layout_width="28dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
